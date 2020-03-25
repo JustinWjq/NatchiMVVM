@@ -9,17 +9,57 @@
         android:id="@+id/navigation_home"
         android:name="com.wanandroid.natchikotlin.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_project"
+            app:destination="@id/home_details_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_project"
+        android:name="com.wanandroid.natchikotlin.ui.home.ProjectFragment"
+        android:label="项目"
+        tools:layout="@layout/project_fragment" >
+        <action
+            android:id="@+id/action_projectFragment_to_detailFragment"
+            app:destination="@+id/home_details_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_in_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.wanandroid.natchikotlin.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/dashboard_fragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.wanandroid.natchikotlin.ui.notifications.NotificationsFragment"
+        android:name="com.wanandroid.natchikotlin.ui.personal.PersonalFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/personal_fragment" />
+
+
+    <fragment
+        android:id="@+id/home_details_fragment"
+        android:name="com.wanandroid.natchikotlin.ui.details.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/details_fragment"
+        >
+        <argument
+            android:name="urlId"
+            app:argType="string"
+            />
+
+
+    </fragment>
 </navigation>

@@ -1,0 +1,18 @@
+package com.wanandroid.natchikotlin.data.remotedatasource
+
+/**
+ * Created by JustinWjq
+ * @date 2019-10-18.
+ * description：
+ */
+object StatusCode {
+
+    val NET_CODE_ERROR = 400
+    val SOCKET_TIMEOUT_EXCEPTION = "SOCKET_TIMEOUT_EXCEPTION"
+    val CONNECT_EXCEPTION = "CONNECT_EXCEPTION"
+    val UNKNOWN_HOST_EXCEPTION = "UNKNOWN_HOST_EXCEPTION"
+    val EMPTY_RESPONSE_EXCEPTION = "EMPTY_RESPONSE_EXCEPTION"
+    val JSON_SYNTAX_EXCEPTION = "JSON_SYNTAX_EXCEPTION"
+    val TIMEOUT_EXCEPTION = "TIMEOUT_EXCEPTION"
+    val UNKNOWN_EXCEPTION = "UNKNOWN_EXCEPTION"
+}

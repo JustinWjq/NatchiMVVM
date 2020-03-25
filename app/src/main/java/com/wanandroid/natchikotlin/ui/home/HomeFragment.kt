@@ -1,31 +1,71 @@
 package com.wanandroid.natchikotlin.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.fragment.app.viewModels
+import com.wanandroid.commonlib.base.LazyLoadFragment
 import com.wanandroid.natchikotlin.R
 
-class HomeFragment : Fragment() {
+import com.wanandroid.natchikotlin.databinding.HomeFragmentBinding
+import com.wanandroid.natchikotlin.ui.ItemListDialogFragment
+import com.wanandroid.natchikotlin.ui.home.viewmodel.HomePageViewModel
+import com.wanandroid.natchikotlin.ui.hot.HotFragment
+import com.wanandroid.natchikotlin.ui.hot.adapter.VpAdapter
+import com.wanandroid.natchikotlin.ui.knowledgesystem.KnowSystemFragment
+import com.wanandroid.natchikotlin.ui.square.SquareFragment
+import com.wanandroid.natchikotlin.utils.InjectorUtils
 
-    private lateinit var homeViewModel: HomeViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+/**
+ * Created by JustinWjq
+ * @date 2019-10-31.
+ * description：
+ */
+class HomeFragment : LazyLoadFragment<HomeFragmentBinding>() {
+    private val viewModel: HomePageViewModel by viewModels {
+        InjectorUtils.provideHomwListViewModelFactory(requireContext())
     }
+
+    override fun onReloadCallBack() {
+        super.onReloadCallBack()
+
+    }
+
+    override fun loadData() {
+
+    }
+
+
+    override fun getLayoutId(): Int = R.layout.home_fragment
+
+    private val titles = arrayOf("项目", "热门","广场","知识体系")
+    val fragments
+            = arrayListOf(ProjectFragment(),
+        HotFragment(), SquareFragment(),
+        KnowSystemFragment()
+    )
+
+
+    override fun initFragment(view: View, savedInstanceState: Bundle?) {
+        initViewPager()
+    }
+
+    private fun initViewPager() {
+        mBinding.run {
+            viewPager.adapter = VpAdapter(childFragmentManager,fragments)
+            viewPager.offscreenPageLimit = fragments.size
+            tabLayout.setViewPager(viewPager, titles)
+            tabLayout.showMsg(2,3)
+        }
+        if (!viewModel.isLoad.value!!){
+
+            viewModel.isLoad.value = true
+        }
+
+
+    }
+
+
 }

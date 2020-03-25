@@ -1,29 +1,39 @@
 package com.wanandroid.natchikotlin
 
-import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.blankj.utilcode.util.BarUtils
+import com.wanandroid.commonlib.base.BaseActivity
+import com.wanandroid.natchikotlin.databinding.MainActivityBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+class MainActivity : BaseActivity<MainActivityBinding>() {
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+
+    protected lateinit var mNavController: NavController
+    override fun initView() {
+        mNavController = findNavController(R.id.nav_host_fragment)
+        binding.navView.setupWithNavController(mNavController)
+        //barutil中的fakeStatusBar是自己定义的所谓状态栏的范围和背景
+        BarUtils.setStatusBarColor4Drawer(binding.drawerlayout,
+            binding.view,ContextCompat.getColor(this,R.color.White),true)
+        binding.fab.setOnClickListener {
+            binding.drawerlayout.openDrawer(GravityCompat.START)
+        }
+
+
     }
+
+    override val layoutId: Int
+        get() = R.layout.main_activity
+
+
+
+
 }
