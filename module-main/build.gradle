@@ -1,0 +1,47 @@
+apply from: "../module.build.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt' // 解决@bindingAdapter无效
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'bugly' // bugly 异常统计
+
+bugly {
+    appId = '06c5ef9615' // 注册时分配的App ID
+    appKey = 'f13932be-9670-48a1-a5bf-e8223f5aede4' // 注册时分配的App Key
+    debug = true
+}
+
+android {
+    //添加如下代码
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    defaultConfig {
+        if (isBuildModule.toBoolean()){
+            applicationId "com.wanandroid.natchikotlin"
+        }
+    }
+    //统一资源前缀，规范资源引用
+//    resourcePrefix "main_"
+
+}
+
+dependencies {
+
+    testImplementation rootProject.ext.androidx["junit"]
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'com.tencent.bugly:crashreport:latest.release'
+
+    api 'com.android.support:multidex:1.0.3'
+
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+    api project(':library-common')
+}

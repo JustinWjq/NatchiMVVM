@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RadarView">
+        <attr name="circleColor" format="reference|color"/>
+        <attr name="circleNum" format="reference|integer"/>
+        <attr name="sweepColor" format="reference|color"/>
+        <attr name="raindropColor" format="reference|color"/>
+        <attr name="raindropNum" format="reference|integer"/>
+        <attr name="showCross" format="reference|boolean"/>
+        <attr name="showRaindrop" format="reference|boolean"/>
+        <attr name="speed" format="reference|float"/>
+        <attr name="flicker" format="reference|float"/>
+
+
+    </declare-styleable>
+</resources>

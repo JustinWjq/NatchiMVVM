@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="todo_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/host_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/host_colorPrimaryDark</item>
+        <item name="colorAccent">@color/host_colorAccent</item>
+    </style>
+
+</resources>

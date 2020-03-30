@@ -1,0 +1,127 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt' // 解决@bindingAdapter无效
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+
+    dataBinding {
+        enabled = true
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        consumerProguardFiles 'consumer-rules.pro'
+
+    }
+
+    sourceSets {
+        main {
+//            jniLibs.srcDirs = ['libs']
+            if (isBuildModule.toBoolean()) {
+            } else {
+                resources {
+                    //正式版本时，排除debug文件夹下所有调试文件
+                    exclude 'src/debug/*'
+                }
+            }
+        }
+    }
+
+    //统一资源前缀,规范资源引用
+//    resourcePrefix "base_"
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api 'com.blankj:utilcodex:1.25.9'//util类
+
+
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.core:core-ktx:1.1.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'androidx.vectordrawable:vectordrawable:1.0.1'
+//    api 'androidx.navigation:navigation-fragment:2.0.0'
+//    api 'androidx.navigation:navigation-ui:2.0.0'
+
+    api "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    api "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+
+
+    //net
+    api "com.squareup.retrofit2:retrofit:${rootProject.retrofit_version}"
+    api "com.squareup.retrofit2:converter-gson:${rootProject.retrofit_version}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofit_version}"
+    api "com.squareup.retrofit2:converter-scalars:${rootProject.retrofit_version}"
+    api "com.squareup.okhttp3:logging-interceptor:${rootProject.logging_version}"
+
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${rootProject.coroutines_version}"
+
+    api "com.google.android.material:material:$rootProject.materialVersion"
+
+    api "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
+
+    api "com.github.bumptech.glide:glide:$rootProject.glide_version"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glide_version"
+
+
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    api 'androidx.recyclerview:recyclerview:1.0.0'
+    api 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
+
+
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.1' //RecyclerView lib
+
+    api 'com.easywidgets.tablayout:EasyTabLayout:1.0.2'
+
+    api 'cn.bingoogolapple:bga-banner:2.2.6@aar'
+
+    api 'androidx.core:core:1.0.0'
+
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+
+//    implementation 'com.jaeger.statusbarutil:library:1.4.0'
+
+
+    api 'me.jessyan:autosize:1.1.2' //屏幕适配框架
+
+    api 'com.hyman:flowlayout-lib:1.1.2' //流式布局
+
+    api 'com.kunminx.linkage:linkage-recyclerview:1.8.4'//二级联动
+
+    api 'com.noober.background:core:1.6.2' //shape库
+
+    api 'com.kingja.loadsir:loadsir:1.3.6' //优雅处理加载中，重试和没有数据
+
+    api 'com.tencent:mmkv:1.0.22' //腾讯的
+
+    api rootProject.ext.dependencies["arouter-api"]
+}

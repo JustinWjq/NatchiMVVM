@@ -1,2 +1,2 @@
-include ':app', ':todomodule', ':commonlib'//, ':host'
+include ':module-main', ':module-todo', ':library-base', ':host', ':library-common'
 rootProject.name='NatchiKotlin'
