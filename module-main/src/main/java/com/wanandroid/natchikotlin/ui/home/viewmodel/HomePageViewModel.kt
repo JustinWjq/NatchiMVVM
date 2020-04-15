@@ -5,11 +5,11 @@ import androidx.lifecycle.*
 import com.wanandroid.commonlib.utils.LogUtils
 import com.wanandroid.natchikotlin.R
 import com.wanandroid.natchikotlin.base.BasePageViewModel
-import com.wanandroid.natchikotlin.data.LoadState
-import com.wanandroid.natchikotlin.data.bean.PageItemBean
-import com.wanandroid.natchikotlin.data.bean.BannerBean
-import com.wanandroid.natchikotlin.data.bean.HomeTabBean
-import com.wanandroid.natchikotlin.data.remotedatasource.*
+import com.wanandroid.natchikotlin.net.*
+import com.wanandroid.natchikotlin.net.LoadState
+import com.wanandroid.natchikotlin.net.bean.BannerBean
+import com.wanandroid.natchikotlin.net.bean.HomeTabBean
+import com.wanandroid.natchikotlin.net.bean.PageItemBean
 import kotlinx.coroutines.async
 
 /**

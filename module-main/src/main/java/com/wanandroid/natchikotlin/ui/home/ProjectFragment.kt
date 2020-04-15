@@ -1,5 +1,6 @@
 package com.wanandroid.natchikotlin.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -10,21 +11,21 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import cn.bingoogolapple.bgabanner.BGABanner
-import com.wanandroid.natchikotlin.base.LazyLoadFragment
+import com.wanandroid.commonlib.base.LazyLoadFragment
 import com.wanandroid.natchikotlin.R
-import com.wanandroid.natchikotlin.data.bean.BannerBean
+import com.wanandroid.natchikotlin.net.bean.BannerBean
 import com.wanandroid.natchikotlin.databinding.ProjectFragmentBinding
-import com.wanandroid.natchikotlin.ui.details.DetailsFragment
 import com.wanandroid.natchikotlin.ui.home.viewmodel.HomePageViewModel
 import com.wanandroid.natchikotlin.utils.InjectorUtils
 import com.wanandroid.commonlib.utils.LogUtils
-import com.wanandroid.natchikotlin.data.LoadState
-import com.wanandroid.natchikotlin.data.bean.PageItemBean
+import com.wanandroid.natchikotlin.net.LoadState
+import com.wanandroid.natchikotlin.net.bean.PageItemBean
 import com.wanandroid.natchikotlin.extension.displayWithUrl
 import com.wanandroid.natchikotlin.ui.home.adpter.HomeQuickAdapter
 import com.wanandroid.natchikotlin.ui.views.loadCallBack.ErrorCallback
 import com.wanandroid.natchikotlin.ui.views.loadCallBack.LoadingCallback
 import kotlinx.android.synthetic.main.project_fragment.*
+import com.wanandroid.natchikotlin.ui.web.WebActivity
 
 
 class ProjectFragment : LazyLoadFragment<ProjectFragmentBinding>() {
@@ -54,12 +55,12 @@ class ProjectFragment : LazyLoadFragment<ProjectFragmentBinding>() {
     private fun initBanner() {
 
         val listener = BGABanner.Delegate<ImageView, BannerBean> { banner, itemView, model, position ->
-                DetailsFragment.viewDetail(
-                    mNavController,
-                    R.id.action_navigation_home_to_navigation_project,
-                    model!!.url
-                )
+                val intent = Intent(activity,WebActivity::class.java).apply {
+                    putExtra("title",model?.title)
+                    putExtra("url",model?.url)
+                }
 
+                activity?.startActivity(intent)
             }
 
         val adapter: BGABanner.Adapter<ImageView, BannerBean> =
@@ -101,11 +102,12 @@ class ProjectFragment : LazyLoadFragment<ProjectFragmentBinding>() {
 
         adapter.setOnItemClickListener { adapter, view, position ->
            val itemBean = adapter.data[position] as PageItemBean
-            DetailsFragment.viewDetail(
-                mNavController,
-                R.id.action_navigation_home_to_navigation_project,
-                itemBean.link!!
-            )
+            val intent = Intent(activity,WebActivity::class.java).apply {
+                putExtra("title",itemBean?.title)
+                putExtra("url",itemBean?.link)
+            }
+
+            activity?.startActivity(intent)
         }
     }
 

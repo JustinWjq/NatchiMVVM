@@ -13,7 +13,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
-import com.wanandroid.natchikotlin.data.bean.BannerBean
+import com.wanandroid.natchikotlin.net.bean.BannerBean
 import com.wanandroid.natchikotlin.extension.displayWithUrl
 
 

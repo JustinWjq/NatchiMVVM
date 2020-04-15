@@ -1,14 +1,12 @@
 package com.wanandroid.natchikotlin.ui.square
 
 import android.util.Log
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
 import com.wanandroid.natchikotlin.base.BasePageViewModel
-import com.wanandroid.natchikotlin.data.bean.*
-import com.wanandroid.natchikotlin.data.remotedatasource.NetWorkManger
-import com.wanandroid.natchikotlin.data.remotedatasource.callApi
-import com.wanandroid.natchikotlin.ui.hot.HotPageViewModel
-import com.wanandroid.natchikotlin.utils.InjectorUtils
+import com.wanandroid.net.data.bean.*
+import com.wanandroid.natchikotlin.net.NetWorkManger
+import com.wanandroid.natchikotlin.net.bean.PageItemBean
+import com.wanandroid.natchikotlin.net.callApi
 
 /**
  * Created by JustinWjq

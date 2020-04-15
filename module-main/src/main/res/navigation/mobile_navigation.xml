@@ -9,7 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="com.wanandroid.natchikotlin.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/home_fragment" >
+        tools:layout="@layout/main_home_fragment" >
         <action
             android:id="@+id/action_navigation_home_to_navigation_project"
             app:destination="@id/home_details_fragment"
@@ -38,13 +38,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.wanandroid.natchikotlin.ui.dashboard.DashboardFragment"
+        android:name="com.wanandroid.natchikotlin.ui.dashboard.TodoFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/dashboard_fragment" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.wanandroid.natchikotlin.ui.personal.PersonalFragment"
+        android:name="com.wanandroid.person.personal.PersonalFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/personal_fragment" />
 

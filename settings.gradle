@@ -1,2 +1,2 @@
-include ':module-main', ':module-todo', ':library-base', ':host', ':library-common'
+include ':module-main', ':module-todo', ':library-base', ':host', ':library-common', ':library-net', ':module-person'
 rootProject.name='NatchiKotlin'

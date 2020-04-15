@@ -23,29 +23,11 @@ import com.wanandroid.natchikotlin.ui.views.loadCallBack.LoadingCallback
  */
 class MainModuleInit : IModuleInit {
     override fun onInitAhead(application: BaseApplication): Boolean {
-        //        ScreenAutoAdapter.setup(application);
-        //        EasyHttp.init(application);
-        //        if (application.issDebug())
-        //        {
-        //            EasyHttp.getInstance().debug("easyhttp", true);
-        //        }
-        //        EasyHttp.getInstance()
-        //            .setBaseUrl("http://baobab.kaiyanapp.com")
-        //            .setReadTimeOut(15 * 1000)
-        //            .setWriteTimeOut(15 * 1000)
-        //            .setConnectTimeout(15 * 1000)
-        //            .setRetryCount(3)
-        //            .setCacheDiskConverter(new GsonDiskConverter())
-        //            .setCacheMode(CacheMode.FIRSTREMOTE);
-        //        LoadSir.beginBuilder()
-        //            .addCallback(new ErrorCallback())
-        //            .addCallback(new LoadingCallback())
-        //            .addCallback(new EmptyCallback())
-        //            .addCallback(new TimeoutCallback())
-        //            .setDefaultCallback(LoadingCallback.class)
-        //            .commit();
-        //         Utils.init(application);
-        //        Logger.i("main组件初始化完成 -- onInitAhead");
+
+        //初始化blankj的工具类
+        Utils.init(application)
+
+        //初始化统一的状态库
         LoadSir.beginBuilder()
             .addCallback(LoadingCallback())//加载
             .addCallback(ErrorCallback())//错误

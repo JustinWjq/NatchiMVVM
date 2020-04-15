@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/host_colorPrimary</item>
         <item name="colorPrimaryDark">@color/host_colorPrimaryDark</item>
         <item name="colorAccent">@color/host_colorAccent</item>
+
     </style>
 
 </resources>

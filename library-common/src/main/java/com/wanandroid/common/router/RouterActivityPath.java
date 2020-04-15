@@ -21,6 +21,16 @@ public class RouterActivityPath
         /** 主页面 */
         public static final String PAGER_MAIN = MAIN + "/Main";
 
+        /**主页fragment*/
+        public static final String PAGER_MAIN_HOME = MAIN + "/Home";
+
+        /**todofragment  TodoFragment 不同模块的路径 路径名需要不一致*/
+        public static final String PAGER_MAIN_TODO ="/todo/Todo";
+
+        /**PersonalFragment*/
+        public static final String PAGER_MAIN_PERSONAL = MAIN + "/Personal";
+
+
         /** **/
         public static final String PAGER_MAIN1 = MAIN + "/Main";
 

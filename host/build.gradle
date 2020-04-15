@@ -48,7 +48,7 @@ android {
         }
     }
     //统一资源前缀,规范资源引用
-    resourcePrefix "host_"
+//    resourcePrefix "host_"
     //开启dataBinding
     dataBinding{
         enabled true
@@ -76,7 +76,9 @@ dependencies {
         //主业务模块
         implementation project(':module-main')
         //todo模块
-//        implementation project(':module-todo')
+        implementation project(':module-todo')
+        //person模块
+        implementation project(':module-person')
     }
 
 

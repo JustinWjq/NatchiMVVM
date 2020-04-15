@@ -24,7 +24,7 @@
             type="android.view.View.OnClickListener"/>
         <variable
             name="viewModel"
-            type="com.wanandroid.natchikotlin.data.bean.PageItemBean" />
+            type="com.wanandroid.natchikotlin.net.bean.PageItemBean" />
     </data>
 
 

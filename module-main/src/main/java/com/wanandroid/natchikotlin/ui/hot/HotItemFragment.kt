@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.wanandroid.natchikotlin.base.LazyLoadFragment
+import com.wanandroid.commonlib.base.LazyLoadFragment
 
 import com.wanandroid.natchikotlin.R
 import com.wanandroid.natchikotlin.databinding.HotItemFragmentBinding

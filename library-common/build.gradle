@@ -39,10 +39,7 @@ android {
         enabled true
     }
 
-    compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-    }
+
 
 }
 
@@ -50,4 +47,5 @@ dependencies {
 
     api rootProject.ext.dependencies["arouter-api"]
     api project(':library-base')
+    api project(':library-net')
 }

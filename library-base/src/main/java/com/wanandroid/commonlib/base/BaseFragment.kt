@@ -27,7 +27,6 @@ import kotlinx.coroutines.cancel
  */
 abstract class BaseFragment<VB : ViewDataBinding> : Fragment(), CoroutineScope by MainScope() {
     protected lateinit var mBinding: VB
-    protected lateinit var mNavController: NavController
 
     protected lateinit var  mActivity :Activity
     //界面状态管理者
@@ -44,7 +43,7 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment(), CoroutineScope b
         savedInstanceState: Bundle?
     ): View? {
         mBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-        mNavController = NavHostFragment.findNavController(this)
+
 
         //父布局注册load类
         loadsir = LoadSir.getDefault().register(mBinding.root) {

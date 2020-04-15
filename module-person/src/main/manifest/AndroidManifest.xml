@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wanandroid.person">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/person_ic_launcher"
+
+        android:roundIcon="@mipmap/person_ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/person_AppTheme">
+
+    </application>
+
+</manifest>

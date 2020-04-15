@@ -17,9 +17,9 @@ import com.kunminx.linkage.adapter.viewholder.LinkageSecondaryViewHolder
 import com.kunminx.linkage.bean.BaseGroupedItem
 import com.kunminx.linkage.contract.ILinkagePrimaryAdapterConfig
 import com.kunminx.linkage.contract.ILinkageSecondaryAdapterConfig
-import com.wanandroid.natchikotlin.base.LazyLoadFragment
+import com.wanandroid.commonlib.base.LazyLoadFragment
 import com.wanandroid.natchikotlin.R
-import com.wanandroid.natchikotlin.data.bean.ElemeGroupedItem
+import com.wanandroid.natchikotlin.net.bean.ElemeGroupedItem
 import com.wanandroid.natchikotlin.databinding.KnowledgesFragmentBinding
 import com.wanandroid.natchikotlin.utils.InjectorUtils
 import kotlinx.android.synthetic.main.knowledges_fragment.*
@@ -52,7 +52,7 @@ class KnowSystemFragment : LazyLoadFragment<KnowledgesFragmentBinding>() {
             items.clear()
             it.forEach{
                 val group = it.name
-                items.add(ElemeGroupedItem(true,group))
+                items.add(ElemeGroupedItem(true, group))
 
                 it.articles.forEach {
                     items.add(

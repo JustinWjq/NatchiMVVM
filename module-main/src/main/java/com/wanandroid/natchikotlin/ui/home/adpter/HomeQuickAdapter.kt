@@ -4,13 +4,11 @@ import android.text.Html
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
 import com.wanandroid.natchikotlin.R
-import com.wanandroid.natchikotlin.data.bean.PageItemBean
-import java.util.HashMap
+import com.wanandroid.natchikotlin.net.bean.PageItemBean
 
 /**
  * Created by JustinWjq

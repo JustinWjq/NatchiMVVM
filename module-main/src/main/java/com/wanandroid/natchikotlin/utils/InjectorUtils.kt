@@ -5,6 +5,7 @@ import com.wanandroid.natchikotlin.ui.home.viewmodel.HomeViewModelFactory
 import com.wanandroid.natchikotlin.ui.hot.HotViewModelFactory
 import com.wanandroid.natchikotlin.ui.knowledgesystem.KnowSystemViewModelFactory
 import com.wanandroid.natchikotlin.ui.square.SquareViewModelFactory
+import com.wanandroid.natchikotlin.ui.wenda.WendaViewModelFactory
 
 /**
  * Created by JustinWjq
@@ -21,6 +22,11 @@ object InjectorUtils {
     fun provideKnowSystemViewModelFactory(context: Context): KnowSystemViewModelFactory {
 
         return KnowSystemViewModelFactory()
+    }
+
+    fun provideWendaViewModelFactory(context: Context): WendaViewModelFactory {
+
+        return WendaViewModelFactory()
     }
 
     fun provideHotViewModelFactory(context: Context): HotViewModelFactory {

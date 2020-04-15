@@ -25,7 +25,7 @@
 
         <variable
             name="viewModel"
-            type="com.wanandroid.natchikotlin.data.bean.HomeTabBean" />
+            type="com.wanandroid.natchikotlin.net.bean.HomeTabBean" />
     </data>
 
 

@@ -1,0 +1,32 @@
+apply from: "../module.gradle"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt' // 解决@bindingAdapter无效
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+//    kotlinOptions {
+//        jvmTarget = '1.8'
+//    }
+
+    defaultConfig {
+        if (isBuildModule.toBoolean()){
+            applicationId "com.wanandroid.person"
+        }
+    }
+    //统一资源前缀，规范资源引用
+    resourcePrefix "person_"
+}
+
+dependencies {
+    testImplementation rootProject.ext.androidx["junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.ext-junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
+
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+    api project(':library-common')
+    api project(':library-net')
+}

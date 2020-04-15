@@ -6,13 +6,12 @@ import android.widget.Button
 import com.google.android.material.snackbar.Snackbar
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.wanandroid.commonlib.base.BaseActivity
-import com.wanandroid.natchikotlin.ARouterPath
 import com.wanandroid.natchikotlin.R
 import com.wanandroid.natchikotlin.databinding.ScrollingActivityBinding
 
 import kotlinx.android.synthetic.main.scrolling_activity.*
 
-@Route(path = ARouterPath.SCROLLPATH)
+
 class ScrollingActivity(override val layoutId: Int=R.layout.scrolling_activity)
     : BaseActivity<ScrollingActivityBinding>(),ItemListDialogFragment.Listener {
 
